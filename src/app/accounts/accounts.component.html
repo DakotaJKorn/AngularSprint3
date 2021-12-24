@@ -1,0 +1,16 @@
+
+<div id="container">
+
+    <div id="header">My Accounts</div>
+
+    <div id= "accounts">
+        <div *ngFor = "let account of accounts" class="card">
+            <app-account-card [account] = "account" [routerLink]="['/accounts', account.id]"></app-account-card>
+        </div> 
+        <div class="card">
+            <app-account-card routerLink="/addAccount"></app-account-card>
+        </div>
+        
+    </div>
+
+</div>

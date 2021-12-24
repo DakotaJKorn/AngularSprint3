@@ -1,0 +1,23 @@
+<div id="upperContent">
+    <div id="leftContent">
+        <p class="accountInfo"><span class="accountText">Name of account holder: </span>{{account.name}}</p>
+        <p class="accountInfo"><span class="accountText">Value of account: </span>{{formatter.format(account.value)}}</p>
+        <p class="accountInfo"><span class="accountText">Cash Available: </span>{{formatter.format(account.cashAvailable)}}</p>    
+    </div>
+    <div id="rightContent">
+        <div class="stockButton" (click)="toggleBuyingBackground()">Buy Stock</div>
+        <div id="sellButton" class="stockButton" (click)="toggleSellingBackground()">Sell Stock</div>
+    </div>
+</div> 
+
+<div id="buyingBackground" *ngIf="buyingBackground">
+       <app-buy-stock-component></app-buy-stock-component>
+</div>
+<div id="sellingBackground" *ngIf="sellingBackground">
+        <app-sell-stock></app-sell-stock>
+</div>
+
+    <app-account-table [account] = "account"></app-account-table>
+
+    
+

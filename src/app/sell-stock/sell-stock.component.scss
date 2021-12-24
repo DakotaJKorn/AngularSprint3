@@ -1,0 +1,84 @@
+$Light-Green: #134f5c;
+$Dark-Green: #0c343d;
+$Beige: #fce5cd;
+$White: #ffffff;
+$Grey: #eeeeee;
+
+#buyingContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+}
+#leftContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 300px;
+    background-color: $Light-Green;
+    color: $Grey;
+    
+}
+
+#stockSelect{
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+#amountSelect{
+    margin-top: 5px;
+    margin-left: 58px;
+}
+
+#buyingStockAmount{
+    width: 60px;
+}
+
+#centerContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $Grey;
+    width: 200px;
+
+}
+
+#cashAmount{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    
+}
+
+#costAmount{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+
+#rightContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    background-color: $Grey;
+}
+
+#sellButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $Light-Green;
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: $White;
+    transition: background-color 1s;
+    cursor: pointer;
+        &:hover{
+            background-color: $Dark-Green;
+        }
+}
+

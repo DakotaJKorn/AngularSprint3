@@ -1,0 +1,69 @@
+$Light-Green: #134f5c;
+$Dark-Green: #0c343d;
+$Beige: #fce5cd;
+$White: #ffffff;
+$Grey: #eeeeee;
+
+
+#upperContent{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+#leftContent{
+    width: 60%;
+}
+.accountInfo{
+    font-size: large;
+}
+.accountText{
+    font-weight: bold;
+}
+
+#rightContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+.stockButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $Dark-Green;
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: $White;
+    transition: background-color 1s;
+    cursor: pointer;
+        &:hover{
+            background-color: $Light-Green;
+        }
+}
+
+#sellButton{
+    background-color: $Light-Green;
+    &:hover{
+        background-color: $Dark-Green;
+    }
+}
+
+#buyingBackground{
+    height: 100px;
+    width: 100%;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+
+#sellingBackground{
+    height: 100px;
+    width: 100%;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}

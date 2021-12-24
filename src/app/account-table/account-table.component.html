@@ -1,0 +1,32 @@
+<div id="tableContent">
+    <table id="stocksTable">
+        <thead>
+            <tr>
+                <td class="sortButton" (click)="sortStocks('name')">Company Name</td>
+                <td class="sortButton" (click)="sortStocks('symbol')">Stock Symbol</td>
+                <td class="sortButton" (click)="sortStocks('price')">Current Price</td> 
+                <td class="sortButton" (click)="sortStocks('amount')">Amount</td>
+                <td class="sortButton" (click)="sortStocks('value')">Value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf= "account.stocks.length == 0"><div id="noStocks"></div></tr>
+            <tr *ngFor="let stock of account.stocks">
+                <td>{{stock.name}}</td>
+                <td>{{stock.symbol}}</td>
+                <td>{{formatter.format(getStockPrice(stock.symbol))}}</td>
+                <td>{{stock.amount}}</td>
+                <td>{{formatter.format(getStockPrice(stock.symbol) * stock.amount)}}</td>
+            </tr>
+            <tr id="lastRow">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="totalTextCell">Total</td>
+                <td id="totalAmountCell">{{formatter.format(account.stockValue)}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+

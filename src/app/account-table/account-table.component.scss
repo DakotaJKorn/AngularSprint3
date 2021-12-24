@@ -1,0 +1,66 @@
+$Light-Green: #134f5c;
+$Dark-Green: #0c343d;
+$Beige: #fce5cd;
+$White: #ffffff;
+$Grey: #eeeeee;
+
+#tableContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#stocksTable{
+height: 100%;
+width: 650px;
+background-color: aliceblue;
+}
+#stocksTable > thead > tr{
+    font-size: larger;
+    font-weight: 1000;
+    height: 40px;
+    background-color: $Dark-Green;
+}
+
+#stocksTable > thead > tr > td{
+    color: $Grey;
+    text-align: center;
+}
+
+#stocksTable > tbody > tr > td{
+    text-align: center;
+    height: 30px;
+}
+
+#lastRow{
+    margin-top: 10px;
+}
+
+#totalTextCell{
+    font-size: larger;
+    font-weight: 1000;
+    height: 40px;
+    background-color: $Dark-Green;
+    color: $Grey;
+}
+
+#totalAmountCell{
+    font-size: large;
+    font-weight: bold;
+    border: 2px solid $Dark-Green;
+}
+
+.sortButton{
+    cursor: pointer;
+    transition: background-color 1s;
+        &:hover{
+            background-color: $Light-Green;
+        }
+}
+
+#noStocks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}

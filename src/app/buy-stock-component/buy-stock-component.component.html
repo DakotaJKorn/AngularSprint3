@@ -1,0 +1,23 @@
+<div id= "buyingContent">
+    <div id="leftContent">
+        <div id="stockSelect">
+            Stock Symbol: <select id="stockOptions" (change)= "printCost()">
+                <option *ngFor = "let stock of stocks">{{stock.symbol}}</option>
+            </select>
+        </div>
+       
+        <div id="amountSelect">
+        Amount: <input type="number" id="buyingStockAmount" min="0" step="1" (change)= "printCost()" (blur)="checkIfPositiveWholeNumber()" placeholder="0">      
+        </div> 
+    </div>
+
+    <div id = "centerContent">
+        <div id="cashAmount">Cash: <span class="buyingText">{{formatter.format(account.cashAvailable)}}</span></div>
+        <div id="costAmount" [ngClass]="{'redText':redText}">Cost: <span class="buyingText">{{formatter.format(buyingCost)}}</span></div> 
+    </div>
+     
+    <div id="rightContent">
+        <div id= "buyButton" (click) = "buyStock()">Buy</div>
+    </div>
+    
+</div>  

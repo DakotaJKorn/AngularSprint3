@@ -1,0 +1,34 @@
+$Light-Green: #134f5c;
+$Dark-Green: #0c343d;
+$Beige: #fce5cd;
+$White: #ffffff;
+$Grey: #eeeeee;
+
+#container{
+    //background-color: beige;
+    height:400px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+#header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 100%;
+    font-size: xxx-large;
+    background-color: $Grey;
+    border: 4px solid $Dark-Green;
+    border-radius: 20px;
+    color: $Dark-Green;
+
+}
+
+#body{
+    margin-top: 20px;
+    height: 300px;
+    width: 100%;
+    background-color: $Grey;
+}

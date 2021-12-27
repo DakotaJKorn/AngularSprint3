@@ -21,6 +21,13 @@ $Grey: #eeeeee;
     font-weight: bold;
 }
 
+#accountName{
+    &:hover{
+        cursor: pointer;
+        color: $Dark-Green;
+    }
+}
+
 #rightContent{
     display: flex;
     flex-direction: row;

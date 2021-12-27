@@ -1,6 +1,9 @@
 <div id="upperContent">
     <div id="leftContent">
-        <p class="accountInfo"><span class="accountText">Name of account holder: </span>{{account.name}}</p>
+        <p class="accountInfo"><span class="accountText">Name of account holder: </span>
+            <span id="editAccountName"><input id="editAccount" type="text" *ngIf = "accountNameEdit == true" (blur)="editAccountBlurred()"></span>
+            <span id="accountName" (dblclick)="doubleClick()" *ngIf = "accountNameValue == true">{{account.name}}</span>
+        </p>
         <p class="accountInfo"><span class="accountText">Value of account: </span>{{formatter.format(account.value)}}</p>
         <p class="accountInfo"><span class="accountText">Cash Available: </span>{{formatter.format(account.cashAvailable)}}</p>    
     </div>

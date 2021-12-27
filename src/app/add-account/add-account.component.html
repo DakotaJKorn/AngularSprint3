@@ -2,6 +2,21 @@
     <div id="header">Add Account</div>
 
     <div id="body">
+        <div id="rightContent">
+            <div id="nameContent">
+                <div class="label">Name of account holder </div>
+                <div id="nameInput"><input id="name" type="text"></div>
+            </div>
+            <div id="moneyContent">
+                <div class="label">Amount of money to depoit </div>
+                <div id="nameInput"><input id="deposit" type="number" min="0" step="1" ></div>
+            </div>
+            <div id="addButton" (click)="addAccount()">Add</div>
+
+        </div>
+        <div id="leftContent">
+            <div id="leftText">Add a family member to your account and begin learning about investing!</div>
+        </div>
 
     </div>
 

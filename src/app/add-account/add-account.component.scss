@@ -27,8 +27,92 @@ $Grey: #eeeeee;
 }
 
 #body{
+    display: flex;
+    flex-direction:row-reverse;
     margin-top: 20px;
     height: 300px;
     width: 100%;
     background-color: $Grey;
+    border: 4px solid $Dark-Green;
+    border-radius: 20px;
+    min-width: 700px;
+}
+
+#rightContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 300px;
+    min-width: 300px;
+    background-color: $Dark-Green;
+    border-radius: 10px;
+    input{
+        border-radius: 5px;
+        height: 30px;
+
+        &:hover{
+            cursor: pointer;
+            background-color: $Grey;
+        }
+
+        &:focus{
+            background-color: $White;
+            border-color: $Dark-Green;
+            text-shadow: $Dark-Green;
+        }
+    }
+}
+
+#nameContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#moneyContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.label{
+    font-size: larger;
+    margin-bottom: 15px;
+    color: $Grey;
+}
+
+#addButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 80px;
+    background-color: $Grey;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: $Dark-Green;
+    &:hover{
+        cursor: pointer;
+        background-color: $White;
+    }
+}
+
+#leftContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 600px;
+    border-radius: 10px;
+}
+
+#leftText{
+    color: $Dark-Green;
+    font-size: xxx-large;
+    text-align: center;
 }

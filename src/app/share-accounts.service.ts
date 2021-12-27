@@ -18,5 +18,9 @@ export class ShareAccountsService {
     return this.accounts;
   }
 
+  addAccount(account:Account){
+    this.accounts.push(account);
+  }
+
 
 }

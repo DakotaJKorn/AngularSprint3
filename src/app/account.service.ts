@@ -21,4 +21,8 @@ export class AccountService {
   updateAccount(account:Account){
     return this.http.put<any>("http://localhost:8082/api/funds/" + account.id,account);
   }
+
+  addAccount(account:Account){
+    return this.http.post<any>("http://localhost:8082/api/funds/" ,account);
+  }
 }

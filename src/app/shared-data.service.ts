@@ -29,6 +29,9 @@ export class SharedDataService {
   setAccount(account:Account){
     this.account = account;
     this.sortAccountStocksBy('name');
+
+    let stringifiedAccount = JSON.stringify(this.account);
+    localStorage.setItem('account', stringifiedAccount);
   }
 
   setStocks(stocks:Stock[]){

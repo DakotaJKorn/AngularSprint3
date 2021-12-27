@@ -1,14 +1,3 @@
-
-
-
-
-//On refresh... refresh buy/sell components and accountTable
-
-
-
-
-
-
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from '../account.service';
@@ -35,6 +24,8 @@ export class AccountComponent implements OnInit {
   
   buyingBackground: Boolean = false;
   sellingBackground: Boolean = false;
+  accountNameEdit: Boolean = false;
+  accountNameValue: Boolean = true;
 
   formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -68,6 +59,7 @@ export class AccountComponent implements OnInit {
       }
     });
 
+    
   }
 
 
@@ -81,4 +73,32 @@ export class AccountComponent implements OnInit {
       this.sellingBackground = !this.sellingBackground;
     }
 
+    doubleClick(){
+      this.accountNameEdit = true;
+      this.accountNameValue = false;
+      let a = (<HTMLInputElement>document.getElementById("editAccountName"));
+      let name = this.account.name;
+
+      setTimeout(function(){
+        let b = (<HTMLInputElement>a.childNodes[0]);
+        b.value = name;
+        b.focus();
+    }, 1);
+      
+    }
+
+    editAccountBlurred(){
+      let nameEdit = (<HTMLInputElement>document.getElementById("editAccount")).value;
+
+      if(!(nameEdit == this.account.name)){
+        this.account.name = nameEdit;
+      }
+
+      this.accountService.updateAccount(this.account).subscribe(response =>{
+        //console.log(response);
+      });
+
+      this.accountNameEdit = false;
+      this.accountNameValue = true;
+    }
 }

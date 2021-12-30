@@ -2,12 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from '../account.service';
 import { Account } from './account.model';
-import { Stock } from '../stock/stock.model';
 import { SharedDataService } from '../shared-data.service';
-import { PersonalStock } from '../stock/personalStock.model';
 import { StockInformationService } from '../stock-information.service';
 import { ShareAccountsService } from '../share-accounts.service';
-
 
 
 @Component({
@@ -16,7 +13,6 @@ import { ShareAccountsService } from '../share-accounts.service';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-
 
   account:Account = {name:"", value:0, cashAvailable:0 , stocks:[], stockValue:0, id:0, imageUrl:""};
 
@@ -37,29 +33,37 @@ export class AccountComponent implements OnInit {
               }
 
   ngOnInit(): void {
-    let a = localStorage.getItem('account') || "";
-    let b = JSON.parse(a);
-    if(b != ""){
-      this.account = b;
-      this.sharedData.setAccount(b);
-    }
 
+    let bool: Boolean = false;
+
+    this.account = this.sharedData.account;
+
+
+    if(this.account.name == "")
+        bool = true;
 
     this.route.params.subscribe(params =>{
       const myid = params['id'];
 
     for(let Account of this.shareAccounts.getAccounts()){
-        if(Account.id == myid){
+        if(Account.id == myid && bool == true){
           this.account = Account;
           this.sharedData.setAccount(Account);
-          let stringifiedAccount = JSON.stringify(this.account);
-          localStorage.setItem('account', stringifiedAccount);
           break;
         }
       }
     });
 
-    
+  }
+
+
+  getTotalValueOfAccount():number{
+    let acc = this.account;
+    let value = 0;
+    setTimeout(function(){
+      value = acc.value;
+  }, 1000);
+    return value;
   }
 
 
@@ -93,6 +97,8 @@ export class AccountComponent implements OnInit {
       if(!(nameEdit == this.account.name)){
         this.account.name = nameEdit;
       }
+      this.sharedData.account = this.account;
+      this.sharedData.updateLocalStorage();
 
       this.accountService.updateAccount(this.account).subscribe(response =>{
         //console.log(response);

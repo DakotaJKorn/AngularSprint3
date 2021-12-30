@@ -74,7 +74,7 @@ export class BuyStockComponentComponent implements OnInit {
       if(this.buyingCost > this.account.cashAvailable )
         alert("Not enough cas available to purchase stock.");
       
-      else if(this.buyingCost == 0)
+      else if(this.buyingCost <= 0)
         alert("You must purchase at least one stock.");
 
       else{
@@ -99,9 +99,9 @@ export class BuyStockComponentComponent implements OnInit {
         if(this.buyingCost > this.account.cashAvailable)
           this.redText = true;
 
-          let stringifiedAccount = JSON.stringify(this.account);
-          localStorage.setItem('account',stringifiedAccount);
-
+          //console.log(this.account);
+        this.sharedData.account = this.account;
+        this.sharedData.updateLocalStorage();
         this.accountService.updateAccount(this.account).subscribe(response =>{
           //console.log(response);
         });

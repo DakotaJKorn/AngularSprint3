@@ -76,7 +76,7 @@ export class SellStockComponent implements OnInit {
         }
       }
 
-      if(this.sellingAmount == 0)
+      if(this.sellingAmount <= 0)
         alert("You must sell at least one stock.");
       else if(amount < this.stockAmount){
         alert("You are trying to sell more stock than you own.");
@@ -94,8 +94,8 @@ export class SellStockComponent implements OnInit {
           }
         }
         
-        let stringifiedAccount = JSON.stringify(this.account);
-        localStorage.setItem('account',stringifiedAccount);
+        this.sharedData.account = this.account;
+        this.sharedData.updateLocalStorage();
 
         this.accountService.updateAccount(this.account).subscribe(response =>{
           //console.log(response);

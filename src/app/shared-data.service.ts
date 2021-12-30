@@ -18,10 +18,23 @@ export class SharedDataService {
   stockValue = 0;
 
   constructor(private stockInformation: StockInformationService) {
+    let acc = localStorage.getItem('account') || "";
+    let arr = JSON.parse(acc);
+    if(arr != ""){
+      this.account = arr;
+      this.account.stockValue = stockInformation.getStocksValue(this.account.stocks);
+    }
+    
     this.allStocks = stockInformation.getAllStocks();
+    
     this.sortAllStocks();
    }
   
+   updateLocalStorage(){
+     localStorage.setItem("account",JSON.stringify(this.account));
+   }
+
+
   setStockValue(value:number){
     this.stockValue = value;
   }
@@ -29,6 +42,7 @@ export class SharedDataService {
   setAccount(account:Account){
     this.account = account;
     this.sortAccountStocksBy('name');
+    this.account.stockValue = this.stockInformation.getStocksValue(this.account.stocks);
 
     let stringifiedAccount = JSON.stringify(this.account);
     localStorage.setItem('account', stringifiedAccount);
@@ -44,7 +58,7 @@ export class SharedDataService {
   }
   
   
-sortAccountStocks(){
+  sortAccountStocks(){
 
     if(this.sortBy == "name"){
       this.account.stocks.sort((a, b) => {
@@ -236,9 +250,9 @@ sortAccountStocks(){
 
   //Sets the sort by variable to the selected attribute
   this.sortBy = attribute;
-}
+  }
 
-sortAllStocks(){
+  sortAllStocks(){
   this.allStocks.sort((a, b) => {
     let fa = a.symbol.toLowerCase(),
         fb = b.symbol.toLowerCase();
@@ -251,7 +265,7 @@ sortAllStocks(){
     }
     return 0;
   });
-}
+  }
 
 
 

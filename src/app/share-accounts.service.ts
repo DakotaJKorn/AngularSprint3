@@ -8,10 +8,16 @@ export class ShareAccountsService {
 
   accounts: Account[] = [];
 
-  constructor() { }
+  constructor() {
+    if(localStorage.getItem("accounts")){
+      let acc = localStorage.getItem("accounts")||"";
+      this.accounts = JSON.parse(acc);
+    }
+   }
 
   setAccounts(accounts: Account[]){
     this.accounts = accounts;
+    localStorage.setItem("accounts", JSON.stringify(accounts));
   }
 
   getAccounts():Account[]{

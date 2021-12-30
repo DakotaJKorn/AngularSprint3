@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../account.service';
 import { Account } from '../account/account.model';
 import { ShareAccountsService } from '../share-accounts.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-account',
@@ -10,7 +11,7 @@ import { ShareAccountsService } from '../share-accounts.service';
 })
 export class AddAccountComponent implements OnInit {
 
-  constructor(private shareAccountService: ShareAccountsService, private accountService: AccountService) { }
+  constructor(private shareAccountService: ShareAccountsService, private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -42,6 +43,7 @@ export class AddAccountComponent implements OnInit {
       });
       this.shareAccountService.addAccount(addingAccount);
       alert("Account created.");
+      this.router.navigateByUrl('/accounts');
      }
      else{
       alert("Please input a valid name and amount.");

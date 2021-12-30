@@ -12,13 +12,11 @@ import { ShareAccountsService } from '../share-accounts.service';
   styleUrls: ['./accounts.component.scss']
 })
 export class AccountsComponent implements OnInit {
-
-  
+ 
   accounts:Account[] = []; 
   allStocks: Stock[] = [];
   
   constructor(private accountService:AccountService, private stockInformationService: StockInformationService, private shareAccounts: ShareAccountsService) { 
-    //stockInformationService.getStockPricesFromAPI();
     this.allStocks = stockInformationService.getAllStocks();
   }
 
@@ -26,7 +24,6 @@ export class AccountsComponent implements OnInit {
     this.accountService.getAccounts().subscribe(response =>{
       this.accounts = response;
       this.shareAccounts.setAccounts(this.accounts);  
-      //console.log(response);
     });
   }
 
